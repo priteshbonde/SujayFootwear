@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+    activeSidebar: number;
+    constructor() {
 
-  constructor() { }
+    }
 
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+        this.activeSidebar = 1;
+    }
+    OnMenuChange(MenuId: number)
+    {
+        console.log(MenuId);
+        this.activeSidebar = MenuId;
+    }
 }

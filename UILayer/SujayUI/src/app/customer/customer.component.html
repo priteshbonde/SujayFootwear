@@ -28,7 +28,7 @@
               <input type="text" value="" placeholder="Search">
               <span class="icon-input-btn pull-right">
 
-                <a class="btn btn-default btn-xs btn-info addEmployee">
+                <a class="btn btn-default btn-xs btn-info addEmployee" (click)="onCreateClick()" data-toggle="modal" data-target="#modal-default">
                   <span class="glyphicon glyphicon-plus"></span>
                   Add Customer
                 </a>
@@ -123,4 +123,75 @@
     </section>
   </section>
   <!--<app-footer></app-footer>-->
+  <div class="modal fade" id="modal-default" [hidden]="IsCreateModalHidden">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">{{ModalTitle}}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-horizontal">
+            <div class="form-group ">
+              <label class="control-label col-md-3 pull-left">Customer ID</label>
+              <div class="col-md-9">
+                <label class="form-control col-md-12">{{customer.customerId}}</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 pull-left">Customer Name</label>
+              <div class="col-md-9">
+                <!--<input type="text" class="form-control" [(ngmodel)]="customer.CustomerName" />-->
+                <input type="text" class="form-control" name="CustomerName" placeholder="FirstName LastName*" required [(ngModel)]="customer.CustomerName" maxlength="40">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 pull-left">Phone Number</label>
+              <div class="col-md-9">
+                <!--<input type="text" class="form-control" [(ngmodel)]="customer.PhoneNumber" />-->
+                <input type="text" class="form-control" name="PhoneNumber" placeholder="PhoneNumber*" required [(ngModel)]="customer.PhoneNumber" maxlength="10">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 pull-left">Customer Email</label>
+              <div class="col-md-9">
+                <!--<input type="text" class="form-control" [(ngmodel)]="customer.Email" />-->
+                <input type="text" class="form-control" name="Email" placeholder="Email" [(ngModel)]="customer.Email" maxlength="50">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 pull-left">Date of Birth</label>
+              <div class="col-md-9">
+                <!--<input type="text" class="form-control" [(ngmodel)]="customer.Address" />-->
+                <!--<input type="text" class="form-control" name="DOB" placeholder="Date of Birth" [(ngModel)]="customer.DOB">-->
+                <!--<datepicker class="form-control" [(ngModel)]="customer.DOB" [viewFormat]="'DD/MM/YYYY'" [modelFormat]="'YYYY-MM-DD'" [id]="'firstDate'" [label]="'To'"></datepicker>-->
+                <input type="date" [(ngModel)]="customer.DOB" class="form-control"/>
+                <!--<mat-datepicker #myDatepicker></mat-datepicker>-->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 pull-left">Address</label>
+              <div class="col-md-9">
+                <!--<input type="text" class="form-control" [(ngmodel)]="customer.Address" />-->
+                <input type="text" class="form-control" name="Address" placeholder="Address" [(ngModel)]="customer.Address">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
 </section>

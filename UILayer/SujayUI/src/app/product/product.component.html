@@ -28,7 +28,7 @@
               <input type="text" value="" placeholder="Search">
               <span class="icon-input-btn pull-right">
 
-                <a class="btn btn-default btn-xs btn-info addEmployee">
+                <a class="btn btn-default btn-xs btn-info addEmployee" data-toggle="modal" data-target="#modal-default">
                   <span class="glyphicon glyphicon-plus"></span>
                   Add Product
                 </a>
@@ -117,5 +117,83 @@
       </div>
     </section>
   </section>
+  <div class="modal fade" id="modal-default" [hidden]="IsCreateModalHidden">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">{{ModalTitle}}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-horizontal">
+            <div class="form-group ">
+              <label class="control-label col-md-3 pull-left">Product ID</label>
+              <div class="col-md-9">
+                <label class="form-control col-md-12">{{product.productId}}</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 pull-left">Barcode</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" name="productBarcodeId" placeholder="Barcode" required [(ngModel)]="product.productBarcodeId" maxlength="40">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-3 pull-left">Product Name</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" name="productName" placeholder="Product Name" required [(ngModel)]="product.productName" maxlength="10">
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <label class="control-label col-md-3 pull-left">Company</label>
+              <div class="col-md-9">
+                <select class="form-control" name="productName" placeholder="Select" required [(ngModel)]="product.productName" maxlength="10">
+                  <option selected="selected">Select</option>
+                  <option>Spark</option>
+                  <option>BATA</option>
+                  <option>Lakhani</option>
+                  <option>Lee</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3 pull-left">Category</label>
+              <div class="col-md-9">
+                <select class="form-control" name="productName" placeholder="Select" [(ngModel)]="product.productName" maxlength="10">
+                  <option selected="selected">Select</option>
+                  <option>Shoes</option>
+                  <option>Chappal</option>
+                  <option>Sneakers</option>
+                  <option>Sport Shoes</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3 pull-left">Is Active</label>
+              <div class="col-md-9">
+                <bSwitch [(ngModel)]="product.isActive"
+                         [switch-handle-width]="40"
+                         [switch-off-text]="True"
+                         [switch-on-text]="False">
+                </bSwitch>
+
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
   <!--<app-footer></app-footer>-->
 </section>

@@ -11,6 +11,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ProductComponent } from './product/product.component';
 import { CustomerComponent } from './customer/customer.component';
+import { JWBootstrapSwitchModule } from 'jw-bootstrap-switch-ng2';
+
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
       RouterModule.forRoot(appRoutes,
           { enableTracing: true }
       ),
-      FormsModule
+      FormsModule,
+      JWBootstrapSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
